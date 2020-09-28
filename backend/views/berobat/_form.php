@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Berobat */
@@ -15,8 +16,14 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'id_Pasien')->textInput() ?>
 
     <?= $form->field($model, 'id_dokter')->textInput() ?>
-
-    <?= $form->field($model, 'tgl_berobat')->textInput() ?>
+    
+    <?= $form->field($model, 'tgl_berobat')->widget(DatePicker::classname(), [
+        'options' => ['placeholder' => 'Masukan tanggal'],
+        'pluginOptions' => [
+            'autoclose'=>true
+    ]
+    ]); 
+?>
 
     <?= $form->field($model, 'keluhan_pasien')->textInput(['maxlength' => true]) ?>
 
